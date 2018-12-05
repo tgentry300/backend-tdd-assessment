@@ -91,7 +91,7 @@ class TestEcho(unittest.TestCase):
         """ Running with no options returns unchanged text """
         arg_list = ['Hello']
         namespace = self.parser.parse_args(arg_list)
-        self.assertTrue(namespace.title != True and namespace.upper != True
+        self.assertTrue(namespace.title is not True and namespace.upper is not True
                         and namespace.title != True)
 
         # Should return input text, not manipulated
