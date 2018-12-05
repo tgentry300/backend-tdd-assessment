@@ -29,18 +29,20 @@ def main(args):
     """Implementation of echo"""
     parser = create_parser()
     namespace = parser.parse_args(args)
-    print vars(namespace)
     num_of_true_args = len([n for n in vars(namespace).values() if n is True])
     result = ''
 
-    if num_of_true_args > 1 or namespace.title:
-        result = ''.join(namespace.text.title())
-
-    elif namespace.upper:
+    if namespace.upper:
         result = namespace.text.upper()
 
-    elif namespace.lower:
+    if namespace.lower:
         result = namespace.text.lower()
+
+    if namespace.title:
+        result = ''.join(namespace.text.title())
+
+    if num_of_true_args == 0:
+        result = namespace.text
 
     return result
 
