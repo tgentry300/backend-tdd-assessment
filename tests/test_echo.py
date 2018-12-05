@@ -92,7 +92,7 @@ class TestEcho(unittest.TestCase):
         arg_list = ['Hello']
         namespace = self.parser.parse_args(arg_list)
         self.assertTrue(namespace.title is not True and namespace.upper is not True
-                        and namespace.title != True)
+                        and namespace.title is not True)
 
         # Should return input text, not manipulated
         self.assertEqual(echo.main(arg_list), 'Hello')
